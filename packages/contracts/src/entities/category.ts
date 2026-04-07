@@ -15,16 +15,7 @@ export const CategorySchema = z.object({
 export type Category = z.infer<typeof CategorySchema>
 
 /** Category with nested children (for tree responses) */
-export const CategoryTreeSchema: z.ZodType<CategoryTree> = CategorySchema.extend({
-  children: z.lazy(() => CategoryTreeSchema.array()).default([]),
-  _count: z
-    .object({
-      products: z.number(),
-    })
-    .optional(),
-})
-
-export type CategoryTree = z.infer<typeof CategorySchema> & {
+export type CategoryTree = Category & {
   children: CategoryTree[]
   _count?: { products: number }
 }

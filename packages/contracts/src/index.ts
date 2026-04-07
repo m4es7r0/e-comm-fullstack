@@ -15,7 +15,6 @@ export {
 
 export {
   CategorySchema,
-  CategoryTreeSchema,
   CreateCategorySchema,
   UpdateCategorySchema,
   type Category,
