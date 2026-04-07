@@ -16,9 +16,9 @@
     "infra:up": "docker compose -f infrastructure/docker/docker-compose.yml up -d",
     "infra:down": "docker compose -f infrastructure/docker/docker-compose.yml down",
     "infra:reset": "docker compose -f infrastructure/docker/docker-compose.yml down -v",
-    "db:migrate": "pnpm --filter backend prisma migrate dev",
-    "db:seed": "pnpm --filter backend prisma db seed",
-    "db:studio": "pnpm --filter backend prisma studio"
+    "db:migrate": "pnpm --filter @ecomm/backend prisma:migrate",
+    "db:seed": "pnpm --filter @ecomm/backend prisma:seed",
+    "db:studio": "pnpm --filter @ecomm/backend prisma:studio"
   },
   "devDependencies": {
     "turbo": "^2.4.0",
