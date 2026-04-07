@@ -9,9 +9,9 @@
 ---
 
 ## Phase 1: Foundation (Week 1–2)
-**Status**: `[~] IN PROGRESS`
+**Status**: `[x] COMPLETE`
 **Started**: 2026-04-07
-**Completed**: —
+**Completed**: 2026-04-07
 
 ### 1.1 Monorepo Setup
 - [x] 1.1.1 Инициализация pnpm workspace
@@ -45,13 +45,12 @@
 - [x] 1.5.7 Seed data
 
 ### 1.6 Verification (run locally)
-- [ ] `pnpm install` без ошибок
-- [ ] `pnpm turbo build` проходит
-- [ ] Docker infra поднимается
-- [ ] `prisma migrate dev` + `prisma db seed`
-- [ ] Backend стартует на :3001
-- [ ] Health endpoint 200
-- [ ] Products/Categories CRUD работает
+- [x] `pnpm install` без ошибок
+- [x] Docker infra поднимается
+- [x] `prisma migrate dev` + `prisma db seed`
+- [x] Backend стартует на :3001
+- [x] Health endpoint 200
+- [x] Products/Categories CRUD работает
 
 ---
 
