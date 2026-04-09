@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { RoleEnum } from '../entities/user.js'
+import { RoleEnum } from '../entities/user'
 
 export const JWTPayloadSchema = z.object({
   userId: z.string(),

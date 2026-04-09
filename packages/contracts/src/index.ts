@@ -11,7 +11,7 @@ export {
   type UpdateProductInput,
   type ProductQuery,
   type ProductStatus,
-} from './entities/product.js'
+} from './entities/product'
 
 export {
   CategorySchema,
@@ -21,7 +21,7 @@ export {
   type CategoryTree,
   type CreateCategoryInput,
   type UpdateCategoryInput,
-} from './entities/category.js'
+} from './entities/category'
 
 export {
   UserSchema,
@@ -38,7 +38,7 @@ export {
   type UpdateProfileInput,
   type ChangePasswordInput,
   type Role,
-} from './entities/user.js'
+} from './entities/user'
 
 export {
   OrderSchema,
@@ -56,7 +56,7 @@ export {
   type OrderQuery,
   type OrderStatus,
   type ShippingAddress,
-} from './entities/order.js'
+} from './entities/order'
 
 export {
   CartItemSchema,
@@ -67,7 +67,7 @@ export {
   type Cart,
   type AddToCartInput,
   type UpdateCartItemInput,
-} from './entities/cart.js'
+} from './entities/cart'
 
 // ── API ─────────────────────────────────────────────────────────────
 
@@ -79,14 +79,14 @@ export {
   type ApiErrorBody,
   type PaginationMeta,
   type PaginatedResponse,
-} from './api/responses.js'
+} from './api/responses'
 
 export {
   PaginationParamsSchema,
   type PaginationParams,
-} from './api/pagination.js'
+} from './api/pagination'
 
-export { ENDPOINTS } from './api/endpoints.js'
+export { ENDPOINTS } from './api/endpoints'
 
 // ── Auth ────────────────────────────────────────────────────────────
 
@@ -95,7 +95,7 @@ export {
   TokenPairSchema,
   type JWTPayload,
   type TokenPair,
-} from './auth/tokens.js'
+} from './auth/tokens'
 
 // ── UI Contracts ────────────────────────────────────────────────────
 
@@ -110,4 +110,4 @@ export type {
   FormState,
   FormContract,
   BaseEntity,
-} from './ui/contracts.js'
+} from './ui/contracts'
