@@ -14,6 +14,7 @@ import authRoutes from './modules/auth/auth.routes.js'
 import userRoutes from './modules/users/user.routes.js'
 import productRoutes from './modules/products/product.routes.js'
 import categoryRoutes from './modules/categories/category.routes.js'
+import cartRoutes from './modules/cart/cart.routes.js'
 import orderRoutes from './modules/orders/order.routes.js'
 import uploadRoutes from './modules/upload/upload.routes.js'
 
@@ -29,7 +30,8 @@ export async function buildApp() {
   })
 
   // Decorate request with user (populated by authenticate middleware)
-  app.decorateRequest('user', null)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  app.decorateRequest('user', null as any)
 
   // ── Core plugins ────────────────────────────────────────────────
   await app.register(cors, {
@@ -56,6 +58,7 @@ export async function buildApp() {
       await api.register(userRoutes)
       await api.register(productRoutes)
       await api.register(categoryRoutes)
+      await api.register(cartRoutes)
       await api.register(orderRoutes)
       await api.register(uploadRoutes)
     },

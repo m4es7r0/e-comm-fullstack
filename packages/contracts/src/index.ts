@@ -61,8 +61,12 @@ export {
 export {
   CartItemSchema,
   CartSchema,
+  AddToCartSchema,
+  UpdateCartItemSchema,
   type CartItem,
   type Cart,
+  type AddToCartInput,
+  type UpdateCartItemInput,
 } from './entities/cart.js'
 
 // ── API ─────────────────────────────────────────────────────────────

@@ -1,5 +1,5 @@
 import type { PrismaClient } from '@prisma/client'
-import type Redis from 'ioredis'
+import type { Redis } from 'ioredis'
 import type { RegisterInput, LoginInput, PublicUser, JWTPayload } from '@ecomm/contracts'
 import { hashPassword, verifyPassword } from '../../lib/password.js'
 import { signTokenPair, verifyRefreshToken, REFRESH_TTL_SECONDS } from '../../lib/tokens.js'

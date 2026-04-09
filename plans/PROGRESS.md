@@ -95,19 +95,26 @@
 - [x] 2.7.1 Pagination helper
 - [x] 2.7.2 Zod validation plugin (fastify-type-provider-zod)
 
-### 2.8 Testing
-- [x] 2.8.1 Test setup (vitest, test helpers)
-- [x] 2.8.2 Auth tests
-- [x] 2.8.3 Products tests
-- [x] 2.8.4 Orders tests
+### 2.8 Cart Module
+- [x] 2.8.1 Cart + CartItem Prisma models (DB-backed, user-bound)
+- [x] 2.8.2 Cart contracts (AddToCart, UpdateCartItem schemas)
+- [x] 2.8.3 Cart service (get, add, update, remove, clear, checkout)
+- [x] 2.8.4 Cart routes (GET/POST/PUT/DELETE + checkout)
+- [x] 2.8.5 Cart → Order checkout flow (transactional)
 
-### 2.9 Verification
+### 2.9 Testing
+- [x] 2.9.1 Test setup (vitest, test helpers)
+- [x] 2.9.2 Auth tests
+- [x] 2.9.3 Products tests
+- [x] 2.9.4 Orders tests
+
+### 2.10 Verification
 - [ ] Auth full flow works
 - [ ] RBAC works (admin/customer)
 - [ ] All CRUD endpoints work
+- [ ] Cart + checkout flow works
 - [ ] S3 upload works
 - [ ] Tests pass
-- [ ] Swagger docs available
 
 ---
 

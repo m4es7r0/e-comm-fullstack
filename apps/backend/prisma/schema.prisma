@@ -39,6 +39,7 @@ model User {
   lastName     String?
   role         Role     @default(CUSTOMER)
   orders       Order[]
+  cart         Cart?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
@@ -80,12 +81,35 @@ model Product {
   orderItems     OrderItem[]
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
+  cartItems      CartItem[]
 
   @@index([slug])
   @@index([categoryId])
   @@index([status])
   @@index([price])
   @@map("products")
+}
+
+model Cart {
+  id        String     @id @default(cuid())
+  userId    String     @unique
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     CartItem[]
+  updatedAt DateTime   @updatedAt
+
+  @@map("carts")
+}
+
+model CartItem {
+  id        String  @id @default(cuid())
+  cartId    String
+  cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+
+  @@unique([cartId, productId])
+  @@map("cart_items")
 }
 
 model Order {

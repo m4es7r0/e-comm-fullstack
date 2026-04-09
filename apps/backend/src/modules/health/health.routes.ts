@@ -2,11 +2,8 @@ import type { FastifyPluginAsync } from 'fastify'
 
 const healthRoutes: FastifyPluginAsync = async (fastify) => {
   fastify.get('/health', async (_request, reply) => {
-    let dbStatus = 'disconnected'
-    let redisStatus = 'disconnected'
-    let s3Status = 'disconnected'
-
     // Check PostgreSQL
+    let dbStatus: string
     try {
       await fastify.prisma.$queryRaw`SELECT 1`
       dbStatus = 'connected'
@@ -15,6 +12,7 @@ const healthRoutes: FastifyPluginAsync = async (fastify) => {
     }
 
     // Check Redis
+    let redisStatus: string
     try {
       const pong = await fastify.redis.ping()
       redisStatus = pong === 'PONG' ? 'connected' : 'error'
@@ -23,8 +21,8 @@ const healthRoutes: FastifyPluginAsync = async (fastify) => {
     }
 
     // Check S3 (MinIO)
+    let s3Status: string
     try {
-      // s3 plugin ensures bucket on startup; just check it's decorated
       s3Status = fastify.s3 ? 'connected' : 'error'
     } catch {
       s3Status = 'error'

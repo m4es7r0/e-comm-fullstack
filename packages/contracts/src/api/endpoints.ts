@@ -21,6 +21,14 @@ export const ENDPOINTS = {
     detail: (idOrSlug: string) => `/categories/${idOrSlug}`,
     products: (slug: string) => `/categories/${slug}/products`,
   },
+  cart: {
+    get: '/cart',
+    add: '/cart/items',
+    updateItem: (itemId: string) => `/cart/items/${itemId}`,
+    removeItem: (itemId: string) => `/cart/items/${itemId}`,
+    clear: '/cart',
+    checkout: '/cart/checkout',
+  },
   orders: {
     list: '/orders',
     detail: (id: string) => `/orders/${id}`,
