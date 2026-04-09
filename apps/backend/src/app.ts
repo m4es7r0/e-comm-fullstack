@@ -4,12 +4,18 @@ import cookie from '@fastify/cookie'
 
 // Plugins
 import prismaPlugin from './plugins/prisma.js'
+import redisPlugin from './plugins/redis.js'
+import s3Plugin from './plugins/s3.js'
 import errorHandlerPlugin from './plugins/error-handler.js'
 
 // Routes
 import healthRoutes from './modules/health/health.routes.js'
+import authRoutes from './modules/auth/auth.routes.js'
+import userRoutes from './modules/users/user.routes.js'
 import productRoutes from './modules/products/product.routes.js'
 import categoryRoutes from './modules/categories/category.routes.js'
+import orderRoutes from './modules/orders/order.routes.js'
+import uploadRoutes from './modules/upload/upload.routes.js'
 
 export async function buildApp() {
   const app = Fastify({
@@ -21,6 +27,9 @@ export async function buildApp() {
           : undefined,
     },
   })
+
+  // Decorate request with user (populated by authenticate middleware)
+  app.decorateRequest('user', null)
 
   // ── Core plugins ────────────────────────────────────────────────
   await app.register(cors, {
@@ -35,14 +44,20 @@ export async function buildApp() {
 
   // ── Custom plugins ──────────────────────────────────────────────
   await app.register(prismaPlugin)
+  await app.register(redisPlugin)
+  await app.register(s3Plugin)
   await app.register(errorHandlerPlugin)
 
   // ── Routes ──────────────────────────────────────────────────────
   await app.register(
     async function apiRoutes(api) {
       await api.register(healthRoutes)
+      await api.register(authRoutes)
+      await api.register(userRoutes)
       await api.register(productRoutes)
       await api.register(categoryRoutes)
+      await api.register(orderRoutes)
+      await api.register(uploadRoutes)
     },
     { prefix: '/api' },
   )

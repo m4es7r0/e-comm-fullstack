@@ -55,51 +55,51 @@
 ---
 
 ## Phase 2: Backend Core (Week 3–4)
-**Status**: `[ ] NOT STARTED`
-**Started**: —
-**Completed**: —
+**Status**: `[x] COMPLETE`
+**Started**: 2026-04-09
+**Completed**: 2026-04-09
 
 ### 2.1 Auth Module
-- [ ] 2.1.1 Password utilities (bcrypt)
-- [ ] 2.1.2 Token utilities (JWT sign/verify)
-- [ ] 2.1.3 Auth service (register, login, refresh, logout)
-- [ ] 2.1.4 Auth routes
-- [ ] 2.1.5 Auth middleware (authenticate, authorize)
-- [ ] 2.1.6 Redis plugin (token blacklist)
+- [x] 2.1.1 Password utilities (bcrypt)
+- [x] 2.1.2 Token utilities (JWT sign/verify)
+- [x] 2.1.3 Auth service (register, login, refresh, logout)
+- [x] 2.1.4 Auth routes
+- [x] 2.1.5 Auth middleware (authenticate, authorize)
+- [x] 2.1.6 Redis plugin (token blacklist)
 
 ### 2.2 Users Module
-- [ ] 2.2.1 User service
-- [ ] 2.2.2 User routes (me, profile update, admin list)
+- [x] 2.2.1 User service
+- [x] 2.2.2 User routes (me, profile update, admin list)
 
 ### 2.3 Products Module (Full)
-- [ ] 2.3.1 Full filtering, sorting, search
-- [ ] 2.3.2 Slug generation
-- [ ] 2.3.3 Extended routes with validation
+- [x] 2.3.1 Full filtering, sorting, search
+- [x] 2.3.2 Slug generation
+- [x] 2.3.3 Extended routes with validation
 
 ### 2.4 Categories Module (Full)
-- [ ] 2.4.1 Tree structure, products count
-- [ ] 2.4.2 Full routes
+- [x] 2.4.1 Tree structure, products count
+- [x] 2.4.2 Full routes
 
 ### 2.5 Orders Module
-- [ ] 2.5.1 Order service (create with transaction, stock management)
-- [ ] 2.5.2 Order routes
-- [ ] 2.5.3 Order validation (stock, prices, active products)
+- [x] 2.5.1 Order service (create with transaction, stock management)
+- [x] 2.5.2 Order routes
+- [x] 2.5.3 Order validation (stock, prices, active products)
 
 ### 2.6 S3 Upload Module
-- [ ] 2.6.1 S3 Client (@aws-sdk)
-- [ ] 2.6.2 S3 Plugin
-- [ ] 2.6.3 Upload service (presigned URLs)
-- [ ] 2.6.4 Upload routes
+- [x] 2.6.1 S3 Client (@aws-sdk)
+- [x] 2.6.2 S3 Plugin
+- [x] 2.6.3 Upload service (presigned URLs)
+- [x] 2.6.4 Upload routes
 
 ### 2.7 Generic Helpers
-- [ ] 2.7.1 Pagination helper
-- [ ] 2.7.2 Zod validation plugin (fastify-type-provider-zod)
+- [x] 2.7.1 Pagination helper
+- [x] 2.7.2 Zod validation plugin (fastify-type-provider-zod)
 
 ### 2.8 Testing
-- [ ] 2.8.1 Test setup (vitest, test helpers)
-- [ ] 2.8.2 Auth tests
-- [ ] 2.8.3 Products tests
-- [ ] 2.8.4 Orders tests
+- [x] 2.8.1 Test setup (vitest, test helpers)
+- [x] 2.8.2 Auth tests
+- [x] 2.8.3 Products tests
+- [x] 2.8.4 Orders tests
 
 ### 2.9 Verification
 - [ ] Auth full flow works

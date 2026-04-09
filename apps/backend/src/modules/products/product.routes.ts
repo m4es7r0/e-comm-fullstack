@@ -1,6 +1,8 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { ProductQuerySchema, CreateProductSchema, UpdateProductSchema } from '@ecomm/contracts'
 import { ProductService } from './product.service.js'
+import { authenticate } from '../../middleware/authenticate.js'
+import { authorize } from '../../middleware/authorize.js'
 
 const productRoutes: FastifyPluginAsync = async (fastify) => {
   const service = new ProductService(fastify.prisma)
@@ -19,27 +21,36 @@ const productRoutes: FastifyPluginAsync = async (fastify) => {
   })
 
   // ── POST /products (admin) ────────────────────────────────────────
-  fastify.post('/products', async (request, reply) => {
-    // TODO: add authenticate + authorize('ADMIN') in Phase 2
-    const input = CreateProductSchema.parse(request.body)
-    const product = await service.create(input)
-    return reply.status(201).send({ data: product })
-  })
+  fastify.post(
+    '/products',
+    { preHandler: [authenticate, authorize('ADMIN')] },
+    async (request, reply) => {
+      const input = CreateProductSchema.parse(request.body)
+      const product = await service.create(input)
+      return reply.status(201).send({ data: product })
+    },
+  )
 
   // ── PUT /products/:id (admin) ─────────────────────────────────────
-  fastify.put<{ Params: { id: string } }>('/products/:id', async (request, reply) => {
-    // TODO: add authenticate + authorize('ADMIN') in Phase 2
-    const input = UpdateProductSchema.parse(request.body)
-    const product = await service.update(request.params.id, input)
-    return reply.send({ data: product })
-  })
+  fastify.put<{ Params: { id: string } }>(
+    '/products/:id',
+    { preHandler: [authenticate, authorize('ADMIN')] },
+    async (request, reply) => {
+      const input = UpdateProductSchema.parse(request.body)
+      const product = await service.update(request.params.id, input)
+      return reply.send({ data: product })
+    },
+  )
 
   // ── DELETE /products/:id (admin) ──────────────────────────────────
-  fastify.delete<{ Params: { id: string } }>('/products/:id', async (request, reply) => {
-    // TODO: add authenticate + authorize('ADMIN') in Phase 2
-    await service.delete(request.params.id)
-    return reply.status(204).send()
-  })
+  fastify.delete<{ Params: { id: string } }>(
+    '/products/:id',
+    { preHandler: [authenticate, authorize('ADMIN')] },
+    async (request, reply) => {
+      await service.delete(request.params.id)
+      return reply.status(204).send()
+    },
+  )
 }
 
 export default productRoutes
